@@ -81,6 +81,7 @@ public class BancoController {
 	}
 
 	@GetMapping("/saldo/{conta}")
+	@ApiOperation(value="Verifica o saldo da conta")
 	public Object saldoConta(@PathVariable(value = "conta") String conta) {
 		try {
 			Banco banco = bancoRepository.findByConta(conta);
@@ -94,7 +95,7 @@ public class BancoController {
 	}
 
 	@PutMapping("/sacar")
-
+	@ApiOperation(value="Saca um valor da conta")
 	public ResponseEntity<Object> sacarBanco(@RequestBody Banco banco) {
 		try {
 			Banco conta = bancoRepository.findByConta(banco.getConta());
